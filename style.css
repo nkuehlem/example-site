@@ -1,0 +1,949 @@
+html {
+	/********
+	Day colors
+	*********/
+	--color-chocolate: #4F3F38 ;
+	--color-chocolate-l: #5F504A ;
+	--color-chocolate-d: #483A33 ;
+	--color-strawberry: #E060A4 ;
+	--color-strawberry-l: #E26EAC ;
+	--color-strawberry-d: #CC5896 ;
+	--color-vanilla: #F4EAD5 ;
+	--color-vanilla-l: #F7F0E1 ;
+	--color-vanilla-d: #DDD3BE ;
+	/********
+	Night colors
+	*********/
+	--color-espresso: #352C2E;
+	--color-espresso-l: #595254;
+	--color-espresso-d: #1D181A;
+	--color-mint: #B3EAA6;
+	--color-mint-l: #C7EFBE;
+	--color-mint-d: #83AB79;
+	/********
+	text colors
+	*********/
+	--color-text-p: #333333 ;
+	--color-text-s: #4D4D4D ;
+	--color-text-d: #808080 ;
+	/********
+	gray colors
+	*********/
+	--color-gray-verylight: #EEEEEE ;
+	--color-gray-light: #CCCCCC ;
+	--color-gray: #999999 ;
+	--color-gray-dark: #666666;
+
+	--font-limelight:'Limelight', cursive;
+	--font-josefin:'Josefin Sans', sans-serif;
+	/*****
+	notification colors
+	******/
+	--color-error: #cc0000;
+	--color-error-light: #FFCCCC;
+	--color-warning:#E0701A;
+	--color-warning-light:#F5D9CB;
+	--color-neutral:#485BAD;
+	--color-neutral-light:#ABB4D9;
+	--color-success:#1a5316;
+	--color-success-light:#A5D9A1;
+
+	/********
+	modular type scale ratio 8:9 "major second" = 1.125, I hope thats how to make it smaller with a -ratio_number...ack  something went wrong !
+	*********/
+	--ratio: 1.125;
+	--size-normal-add8: calc( var(--size--normal-add7) * var(--ratio) );
+	--size-normal-add7: calc( var(--size--normal-add6) * var(--ratio) );
+	--size-normal-add6: calc( var(--size--normal-add5) * var(--ratio) );
+	--size-normal-add5: calc( var(--size--normal-add4) * var(--ratio) );
+	--size-normal-add4: calc( var(--size--normal-add3) * var(--ratio) );
+	--size-normal-add3: calc( var(--size--normal-add2) * var(--ratio) );
+	--size-normal-add2: calc( var(--size--normal-add1) * var(--ratio) );
+	--size-normal-add1: calc( 1rem * var(--ratio) );
+	--size-normal: 1rem;
+	--size-normal-sub1: calc( 1rem / var(--ratio) );
+	--size-normal-sub2: calc( var(--size-normal-sub1) / var(--ratio) );
+	--size-normal-sub3: calc( var(--size-normal-sub2) / var(--ratio) );
+	/********
+	margins so far so good here...but here is variable to let you know I thought about them
+	*********/
+	--margin-standard: 1rem;
+	--margin-standard-add1: 2rem;
+	--margin-standard-sub1: .5rem;
+}
+/***************
+typography
+***************/
+body {
+	font-family: var(--font-josefin);
+}
+
+figure{
+	font-family: var(--font-josefin);
+}
+
+h1 {
+	font-size: var(--size-normal-add6);
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+h2{
+	font-size: var(--size-normal-add5);
+	font-weight: 700;
+	line-height: 1.3;
+	margin-top: 4rem;	
+}
+
+h3 {
+	font-size: var(--size-normal-add4);
+	font-weight: 700;
+	margin-top: 2rem;	
+}
+
+h4 {
+	font-size: var(--size-normal-add3);	
+}
+
+h5 {
+	font-size: var(--size-normal-add2);	
+}
+/**************************
+warning on using h6's like like this...browsers apparently like to add lots of default stuff they call user agent rules
+********************************/
+h6 {
+	font-size: 3rem;
+	margin: 0;	
+}
+@media screen and (min-width:700px) {
+
+	h6 {
+		font-size: 3.25rem;
+		}
+}
+
+.logo {
+	text-shadow: .1rem .1rem .1rem var(--color-vanilla-d);
+}
+
+.logo:hover {
+	text-shadow: .1rem .1rem .1rem var(--color-vanilla-l);
+}
+
+.josefin {
+	font-family: var(--font-josefin);
+}
+
+.limelight {
+	font-family: var(--font-limelight);
+}
+
+.text-featured {
+	border-left: 1rem solid var(--color-strawberry-d);
+	border-radius: .5rem ;
+	font-weight: 600;
+	line-height: 1.8;
+	margin: var(--margin-standard);
+	padding-left: 1rem;
+	text-align: left;
+}
+
+.text-tertiary {
+	font-size: var(--size-normal-sub2)
+}
+
+ul {
+	list-style-position: inside;
+ 	text-align: left;
+ 	list-style-type: square;
+ }
+
+ol {
+	text-align: left;
+}
+
+blockquote {
+	border: .075rem solid var(--color-gray-light);
+	box-shadow: .3rem .3rem var(--color-strawberry-d);
+	font-weight: 500;
+}
+/******************************************
+Notifications
+************************************************/
+
+.notification-error {
+	align-content: center;
+	background-color: var(--color-error-light);
+	border:1px solid var(--color-error);
+	color: var(--color-error);
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+}
+
+.notification-warning {
+	align-content: center;
+	background-color: var(--color-warning-light);
+	border:1px solid var(--color-warning);
+	border-radius: .2rem;
+	color: var(--color-warning);
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+}
+
+.notification-neutral {
+	align-content: center;
+	background-color: var(--color-neutral-light);
+	border:1px solid var(--color-neutral);
+	border-radius: .4rem;
+	color: var(--color-neutral);
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+}
+
+.notification-success {
+	align-content: center;
+	background-color: var(--color-success-light);
+	border:1px solid var(--color-success);
+	border-radius: .6rem;
+	color: var(--color-success);
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+}
+/***************
+links
+***************/
+
+a, a:visited {
+	color: var(--color-strawberry-d);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-chocolate);
+}
+
+a:focus {
+	color: var(--color-strawberry);
+	outline-color: var(--color-mint)
+}
+
+a:active {
+	color: var(--color-mint);
+}
+
+/*************************************************
+main layout
+**************************************************/
+html {
+	color: var(--color-text-p);
+	line-height: 1.6;
+}
+
+body {
+	background-color: var(--color-chocolate);
+	margin: 0 ;
+}
+
+main {
+	background-color: var(--color-vanilla);
+	border-radius: 1rem 1rem 0 0;
+	margin: auto;
+	max-width: 42rem;
+	padding: 1rem;
+	text-align: center;
+}
+
+p {
+	text-align: left;
+}
+
+h1{
+		font-size: 3rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+/*
+914px aligns search bar
+*/
+@media screen and (min-width:50rem) {
+
+
+	/***************
+I know I know I'm still trying to make the font variables work properly
+***************/
+header h1 {
+	font-size: 3.25rem;
+	}
+}
+
+/****************************
+header 
+*****************************/
+header {
+  	background: var(--color-chocolate);
+  	color: var(--color-strawberry);
+  	font-size: 2rem;
+  	font-family: var(--font-limelight);
+  	padding: 2rem 2rem 0 2rem;
+  	text-align: center;
+}
+
+/***
+hero-banner
+***/
+.hero {
+	align-content: center;
+	background-image: url(images/massimo-adami-Km0Qbf7V4JE-unsplash.jpg);
+	background-size: cover;
+	color: var(--color-gray-verylight);
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: flex-start;
+}
+
+.hero h1{
+	font-family: var(--font-limelight);
+	font-size: 3rem;
+	text-shadow: 2px 2px 5px var(--color-strawberry);
+}
+
+.hero p {
+	color: var(--color-gray-dark);
+}
+
+@media screen and (min-width:900px) {
+	.hero {
+		border-radius: 3px;
+		margin: 0 8rem 1rem 8rem;
+
+	}
+
+
+}
+/***************
+nav
+***************/
+nav {
+	background-color: var(--color-chocolate);
+}
+
+nav li{
+	list-style-type: none;
+}
+
+.active {
+	background-color: var(--color-strawberry);
+}
+
+nav ul {
+	padding: 0;
+	text-align: center;
+}
+
+nav a, nav a:visited {
+	background-color: var(--color-choclate);
+  	color: var(--color-vanilla);
+  	display: inline-block;
+	padding: .1rem 1.3rem;
+	position: relative;
+  	text-align: center;
+  	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration-line: underline;
+}
+
+nav a:hover:after {
+	content: '';
+	border-bottom: 1px solid var(--color-vanilla);
+	bottom: .3rem;
+	height: 1px;
+	left: 1.3rem;
+	position: absolute;
+	right: 1.3rem;
+}
+
+nav a:focus {
+	background-color: var(--color-strawberry-d);
+}
+
+nav a:active {
+	background-color: var(--color-strawberry-l);
+}
+ nav input[type=search] {
+	margin-top: 1rem;
+ }
+
+@media screen and (min-width: 800px){
+
+	nav li {
+		display: inline-block;
+	}
+	Main {
+		padding: 5rem;
+	}
+}
+
+input[type="search"] {
+	border: 0;
+	border-radius: .5rem;
+	font-size: .95rem;
+	outline: 0;
+}
+
+/***************
+svg
+***************/
+.color-swatch {
+	padding: 0 1rem;
+}
+/* -----
+SVG Icons - svgicons.sparkk.fr  free svg icons! question, when is svg better/worse to use, will load times come into play with this versus a tiny.jpg
+----- */
+
+.svg-icon-error {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+  
+.svg-icon-error path,
+.svg-icon-error polygon,
+.svg-icon-error rect {
+	fill: var(--color-error);
+}
+  
+.svg-icon-error circle {
+	stroke: var(--color-error);
+	stroke-width: 1;
+}
+.svg-icon-warning {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+  
+.svg-icon-warning path,
+.svg-icon-warning polygon,
+.svg-icon-warning rect {
+	fill: var(--color-warning);
+}
+  
+.svg-icon-warning circle {
+	stroke: var(--color-warning);
+	stroke-width: 1;
+}
+
+.svg-icon-neutral {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+  
+.svg-icon-neutral path,
+.svg-icon-neutral polygon,
+.svg-icon-neutral rect {
+	fill: var(--color-neutral);
+}
+  
+.svg-icon-neutral circle {
+	stroke: var(--color-neutral);
+	stroke-width: 1;
+}
+
+.svg-icon-success {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+  
+.svg-icon-success path,
+.svg-icon-success polygon,
+.svg-icon-success rect {
+	fill: var(--color-success);
+}
+  
+.svg-icon-success circle {
+	stroke: var(--color-success);
+	stroke-width: 1;
+}
+
+
+
+/**********
+Button links
+*****************/
+
+.hero-button-link, .hero-button-link:visited {
+	background-color: var(--color-error-light);
+	border: 3px solid;
+	border-radius: 7px;
+	color: var(--color-strawberry);
+	max-width: 20rem;
+	padding: 1rem;
+	text-align: center;
+}
+
+.hero-button-link:hover {
+	animation: color-flip .6s ease-out;
+	background-color: var(--color-strawberry);
+	border-color: var(--color-strawberry);
+	color: var(--color-vanilla);
+	text-decoration: underline;
+}
+
+.hero-button-link:focus {
+	color: var(--color-strawberry-l);
+	border-color: var(--color-strawberry-d);
+}
+
+.hero-button-link:active {
+	color: var(--color-mint);
+	border: 3px double;
+	border-color: var(--color-strawberry-d);
+}
+
+.hero-button-link-chocolate, .hero-button-link-chocolate:visited {
+
+	border: 3px solid;
+	border-radius: 7px;
+	color: var(--color-chocolate-l);
+	padding: 1rem;
+}
+
+.hero-button-link-chocolate:hover {
+	animation: color-flip .6s ease-out;
+	background-color: var(--color-strawberry);
+	border-color: var(--color-strawberry);
+	color: var(--color-vanilla);
+	text-decoration: underline;
+}
+
+.hero-button-link-chocolate:focus {
+	color: var(--color-strawberry-l);
+	border-color: var(--color-strawberry-d);
+}
+
+.hero-button-link-chocolate:active {
+	color: var(--color-mint);
+	border: 3px double;
+	border-color: var(--color-strawberry-d);
+}
+
+.normal-button-link, .normal-button-link:visited {
+
+	background: var(--color-vanilla-l); /* fallback color for old browsers */background: rgba(255, 255, 255, 0.8);
+	border: 2px solid var(--color-strawberry-l);
+	border-radius: 7px;
+	color: var(--color-strawberry-l);
+	padding: 1rem;
+}
+
+.normal-button-link:hover  {
+	color: var(--color-vanilla);
+	background-color: var(--color-strawberry);
+}
+
+.normal-button-link:active{
+ 	background-color: var(--color-strawberry);
+ 	border: double;
+	border-color: var(--color-mint);
+	color: var(--color-mint);
+}
+
+.tertiary-button-link, .tertiary-button-link:visited{
+	border: 1px solid;
+	border-radius: 7px;
+	padding: .5rem;
+}
+
+.tertiary-button-link:active{
+ background-color: var(--color-chocolate-l);
+}
+
+@keyframes color-flip {
+	0% {
+		background-color: transparent;
+		color: var(--color-strawberry);
+	}
+
+	50% {
+		/* future tinkering here*/
+	}
+
+	100% {
+		background-color: var(--color-strawberry);
+		color: var(--color-vanilla);
+		text-decoration: underline;	
+	}
+}
+/**********
+details&summary
+*****************/
+details {
+	background-color: var(--color-vanilla-l);
+	border: 2px solid var(--color-chocolate-l);
+	font-size: 2rem;
+}
+
+details div {
+	padding: .5rem;
+	font-size: 1rem;
+}
+
+summary {
+	outline-color: var(--color-strawberry-l);
+}
+
+/**********
+modals
+*****************/
+dialog {
+	animation: modal-animation .45s ease;
+	background-color: var(--color-vanilla-l);
+	border: double 8px var(--color-chocolate-d);
+
+}
+
+dialog::backdrop {
+	background-color: rgba(224, 96, 164, .9);
+}
+
+@keyframes modal-animation {
+
+	0% {
+		transform: translateY(10rem) scale(.5);
+	}
+
+	100% {
+		transform: translateY(0) scale(1);
+	}
+}
+/**********
+Forms-It is in a div so my search bar in nav does not take on the style.
+*****************/
+form div {
+	background-color: var(--color-chocolate-d);
+	border: 10px double;
+	border-color: var(--color-vanilla-d);
+	border-radius: 7px;
+	color: var(--color-strawberry-l);
+	padding: .5rem;
+}
+
+label,
+input,
+select,
+textarea {
+	border-radius: 7px;
+	color: var(--color-strawberry-l);
+	display: block;
+	margin: auto;
+	padding: 1rem;
+	width: 65%;
+}
+
+input, input:visited,
+select,textarea{
+	background-color: var(--color-vanilla-l);
+}
+
+select:hover,
+textarea:hover {
+	background-color: var(--color-vanilla);
+}
+
+input:hover{
+	background-color: var(--color-vanilla)
+}
+
+input:focus, input:active,
+select:focus, select:active,
+textarea:focus, textarea:active{
+	outline-color: var(--color-strawberry);
+}
+
+input[disabled] {
+ 	text-decoration: line-through;
+}
+
+label {
+	margin-top: 2rem;
+}
+
+[type="submit"],
+button {
+	background-color: var(--color-strawberry-d);
+	border: none;
+	border-radius: 0.4rem;
+	color: var(--color-vanilla-l);
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+	padding: .5rem;
+}
+
+[type="submit"]:hover, [type="submit"]:focus
+button:hover, button:focus {
+	background-color: var(--color-strawberry-l);
+}
+
+.helper-text {
+	text-align: center;
+	font-size: var(--size-normal-sub2);
+}
+
+.error {
+	border-color: var(--color-error);
+}
+/**********
+CARDS
+*****************/
+.card_article {
+	background-color: var(--color-vanilla-d);
+	background-image: radial-gradient(circle farthest-side, #F7F0E1, #DDD3BE);
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 45rem;
+	padding: 1rem;
+}
+
+.card_article img {
+	filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.9));
+	max-height: 20rem;
+	max-width: 45rem;
+}
+
+.card_article:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+
+
+.card_profile {
+	background-color: var(--color-vanilla-l);
+	background-image: radial-gradient(circle farthest-side, #DDD3BE, #F7F0E1);
+	background-repeat: no-repeat;
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: inline-block;
+	max-width: 45rem;
+	min-width: 10rem;
+	padding: 1.5rem;
+}
+
+.card_profile:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+
+.card_call_to_action {
+	background-attachment: fixed;
+	background-image: url(images/sara-cervera-7m2MRtNTOSE-unsplash.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: flex;
+	color: var(--color-strawberry-l);
+	flex-direction: column;
+	max-width: 40rem;
+	padding: 1rem;
+}
+.card_call_to_action h1 {
+	text-shadow: 1.5px .5px  var(--color-vanilla-l),
+				 2px 2px 6px var(--color-espresso-d);
+
+}
+.card_call_to_action:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+
+.card_call_to_action-1 {
+	background-attachment: fixed;
+	background-image: url(images/call_to_action-1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: flex;
+	color: var(--color-strawberry-l);
+	flex-direction: column;
+	max-width: 40rem;
+	padding: 1rem;
+}
+.card_call_to_action-1 h1 {
+	text-shadow: 1.5px .5px  var(--color-vanilla-l),
+				 2px 2px 6px var(--color-espresso-d);
+
+}
+.card_call_to_action-1:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+
+.card_call_to_action-2 {
+	background-attachment: fixed;
+	background-image: url(images/call_to_action-2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: flex;
+	color: var(--color-strawberry-l);
+	flex-direction: column;
+	max-width: 40rem;
+	padding: 1rem;
+}
+.card_call_to_action-2 h1 {
+	text-shadow: 1.5px .5px  var(--color-vanilla-l),
+				 2px 2px 6px var(--color-espresso-d);
+
+}
+.card_call_to_action-2:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+
+.card_call_to_action-3 {
+	background-attachment: fixed;
+	background-image: url(images/call_to_action-3.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 2px 2px 4px var(--color-espresso-l);
+	display: flex;
+	color: var(--color-strawberry-l);
+	flex-direction: column;
+	max-width: 40rem;
+	padding: 1rem;
+}
+.card_call_to_action-3 h1 {
+	text-shadow: 1.5px .5px  var(--color-vanilla-l),
+				 2px 2px 6px var(--color-espresso-d);
+
+}
+.card_call_to_action-3:hover {
+	box-shadow: 4px 4px 8px var(--color-espresso-l);
+}
+/********
+grid containers 
+***********/
+
+.grid-container {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1fr;
+}
+
+.grid-card-grid {
+	padding: 2rem;
+}
+/*************
+.grid-card-callouts {
+	grid-gap: 1rem;
+	grid-template-columns: 1fr;
+}
+********/
+
+
+@media screen and (min-width: 700px){
+
+	.grid-card-grid{	
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.grid-card-callouts{
+		grid-template-columns: 1fr 1fr;
+	}
+
+}
+
+
+
+@media screen and (min-width: 1000px){
+
+	.grid-card-grid {	
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.grid-card-callouts {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+	}
+
+	.callouts-1 {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+
+	.callouts-2{
+		grid-column-start: 3;
+		grid-column-end: 4;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+
+	.callouts-3 {
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+
+	.callouts-5 {
+		grid-column-start: 2;
+		grid-column-end: 4;
+	}
+
+	.callouts-6 {
+		grid-column-start: 1;
+		grid-column-end: 4;
+	}
+
+}
+
+/**********
+footer
+*****************/
+footer {
+	background-color: var(--color-vanilla);
+	border-radius: 0 0 1rem 1rem;
+	margin: auto;
+	max-width: 42rem;
+	margin-top: 0;
+	text-align: center;
+	padding: 5rem;
+}
+
+/**********
+figure
+*****************/
+
+figure {
+	margin-top: 2rem;
+}
+
+
+/*=======================================
+images
+========================================*/
+
+img {
+	max-width: 100%;
+	height: auto; 
+}
+
+.image-single-oval {
+
+	border-radius: 15rem;
+	filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.9));
+
+}
+
+.image-single-shadow {
+
+	box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+	transition: box-shadow 0.2s ease-in-out;
+
+}
+.image-single-shadow:hover {
+
+	box-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+
+}
